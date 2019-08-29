@@ -20,7 +20,21 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
-    }
+		},
+		
+		fontawesome: {
+			icons: {
+				'free-brands-svg-icons': [
+					'twitter',
+					'codepen',
+					'linkedin',
+					'github'
+				],
+				'free-solid-svg-icons': [
+					'angle-up'
+				]
+			}
+		}
   };
 
   if (environment === 'development') {
@@ -28,7 +42,13 @@ module.exports = function(environment) {
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
-    // ENV.APP.LOG_VIEW_LOOKUPS = true;
+		// ENV.APP.LOG_VIEW_LOOKUPS = true;
+		
+		ENV['ember-a11y-testing'] = {
+			componentOptions: {
+				turnAuditOff: true
+			}
+		}
   }
 
   if (environment === 'test') {

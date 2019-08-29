@@ -1,20 +1,34 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>SimplefolioEmber</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+		<!-- Put here your site title -->
+		<title>[Your name here] | Developer</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<!-- Add some coding keywords below, Ex: (javascript, yourusername, etc) -->
+    <meta name="keywords" content="[username], [name], skill" />
+		
+    <!-- Improve your SEO by adding a small descrption of you -->
+    <meta name="description" content="[Your name here] | Developer" />
+		
+		<!-- Add your custom Favicon -->
+    <link rel="shortcut icon" type="image/png" href="{{rootURL}}assets/favicon.png" />
 
     {{content-for "head"}}
 
+		<link rel="dns-prefetch" href="//fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+		
     <link integrity="" rel="stylesheet" href="{{rootURL}}assets/vendor.css">
     <link integrity="" rel="stylesheet" href="{{rootURL}}assets/simplefolio-ember.css">
 
     {{content-for "head-footer"}}
   </head>
-  <body>
+  <body class="text-center">
     {{content-for "body"}}
 
     <script src="{{rootURL}}assets/vendor.js"></script>
