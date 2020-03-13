@@ -8,8 +8,8 @@
 
 Feel free to use it as-is or customize it as much as you want. I was 
 motivated to create this project after I saw the original 
-[Simplefolio](https://github.com/cobimr/simplefolio) by 
-[Jacobo Martinez](https://github.com/cobimr). He wanted to contribute 
+[Simplefolio](https://github.com/cobidev/simplefolio) by 
+[Jacobo Martinez](https://github.com/cobidev). He wanted to contribute 
 something useful for the dev community and I support his efforts 100%. 
 Simplefolio Ember is just a recreation of that same portofolio template 
 in Ember.js.
