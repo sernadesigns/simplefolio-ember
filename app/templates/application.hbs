@@ -4,38 +4,34 @@
 <div id="welcome-section">
 	<div class="container">
 		{{!-- Opening Text --}}
-		{{#scroll-reveal
-			tagName="h1"
-			elementId="opening-text"
+		<ScrollReveal
+			@tagName="h1"
+			@elementId="opening-text"
 			class="load-hidden"
-			distance="30px"
-			duration=1000
-			reset=true
-			delay=500
-			origin=(if (not (media "isDesktop")) "left" "bottom")
-		}}
+			@distance="30px"
+			@duration={{1000}}
+			@reset={{true}}
+			@delay={{500}}
+			@origin={{@leftToBottom}}
+		>
 			Hi, my name is <span class="text-color-main">John Doe</span>
 			<span class="block">I'm the Unknown Developer.</span>
-		{{/scroll-reveal}}
+		</ScrollReveal>
 		{{!-- /END Opening Text --}}
 
 		{{!-- Opening Call To Action --}}
-		{{#scroll-reveal
-			tagName="p"
-			elementId="opening-paragraph"
+		<ScrollReveal
+			@tagName="p"
+			@elementId="opening-paragraph"
 			class="load-hidden"
-			distance="30px"
-			duration=1000
-			reset=true
-			delay=1000
-			origin=(if (not (media "isDesktop")) "left" "bottom")
-		}}
-			{{jump-scroll
-				class="cta-btn cta-btn--hero"
-				href="#about"
-				text="Know more"
-			}}
-		{{/scroll-reveal}}
+			@distance="30px"
+			@duration={{1000}}
+			@reset={{true}}
+			@delay={{1000}}
+			@origin={{@leftToBottom}}
+		>
+			<a class="cta-btn cta-btn--hero" href="#about" {{jumpscroll}}>Know more</a>
+		</ScrollReveal>
 	</div>
 </div>
 {{!-- /END Welcome Section --}}
@@ -44,41 +40,41 @@
 {{!-- **** About Section **** --}}
 <section id="about">
 	<div class="container">
-		{{#scroll-reveal
-			tagName="h2"
+		<ScrollReveal
+			@tagName="h2"
 			class="section-title"
-			duration=1000
-			delay=300
-		}}
+			@duration={{1000}}
+			@delay={{300}}
+		>
 			About me
-		{{/scroll-reveal}}
+		</ScrollReveal>
 		
 		<div class="row about-wrapper">
 			<div class="col-md-6 col-sm-12">
-				{{#scroll-reveal
+				<ScrollReveal
 					class="about-wrapper__image"
-					distance="30px"
-					duration=1000
-				}}
+					@distance="30px"
+					@duration={{1000}}
+				>
 					{{!-- Profile image: change path: assets/images/yourpic.jpg --}}
 					<img
 						class="img-fluid rounded shadow-lg"
 						height="auto"
 						width="300px"
 						src="assets/images/profile.png"
-						alt="Profile Image"
+						alt="Profile"
 					>
 					{{!-- /END Profile image --}}
-				{{/scroll-reveal}}
+				</ScrollReveal>
 			</div>
 			<div class="col-md-6 col-sm-12">
-				{{#scroll-reveal
+				<ScrollReveal
 					class="about-wrapper__info"
-					distance="30px"
-					duration=1000
-					delay=1000
-					origin=(if (not (media "isDesktop")) "left" "bottom")
-				}}
+					@distance="30px"
+					@duration={{1000}}
+					@delay={{1000}}
+					@origin={{@leftToBottom}}
+				>
 					{{!-- 
 					Profile about-text: I recommend to have no more than 4 blocks 
 					of text
@@ -102,13 +98,13 @@
 						Resume Link: Put your external link for resume.
 						If you want you can comment this link
 						--}}
-						<a rel="noopener" target="_blank" class="mt-8 cta-btn cta-btn--resume" href="#!">
+						<a rel="noopener noreferrer" target="_blank" class="mt-8 cta-btn cta-btn--resume" href="#!">
 							View Resume
 						</a>
 						{{!-- /END Resume link --}}
 					</p>
 					{{!-- /END Profile about text  --}}
-				{{/scroll-reveal}}
+				</ScrollReveal>
 			</div>
 		</div>
 	</div>
@@ -121,184 +117,92 @@
 	<div class="container">
 		{{!-- Personal projects --}}
 		<div class="project-wrapper">
-			{{#scroll-reveal
-				tagName="h2"
+			<ScrollReveal
+				@tagName="h2"
 				class="section-title dark-blue-text"
-				duration=1000
-				delay=300
-			}}
+				@duration={{1000}}
+				@delay={{300}}
+			>
 				Projects
-			{{/scroll-reveal}}
-			{{!-- Each .row is a project block --}}
-			<div class="row">
-				<div class="col-lg-4 col-sm-12">
-					{{#scroll-reveal
-						class="project-wrapper__text"
-						distance="30px"
-						duration=1000
-						delay=500
-						origin=(if (not (media "isDesktop")) "left" "bottom")
-					}}
-						{{!-- 1) project title --}}
-						<h3 class="project-wrapper__text-title">Project Title</h3>
-						{{!-- 2) project info --}}
-						<div>
-							<p class="mb-4">
-								Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-								Excepturi neque, ipsa animi maiores repellendus distinctio
-								aperiam earum dolor voluptatum consequatur blanditiis
-								inventore debitis fuga numquam voluptate ex architecto
-								itaque molestiae.
-							</p>
-						</div>
-						{{!-- 3) project url  --}}
-						<a rel="noopener" target="_blank" class="cta-btn cta-btn--hero" href="#!">
-							See Live
-						</a>
-						{{!-- 4) project repository url --}}
-						<a rel="noopener" target="_blank" class="cta-btn text-color-main" href="#!">
-							Source Code
-						</a>
-					{{/scroll-reveal}}
-				</div>
-				<div class="col-lg-8 col-sm-12">
-					{{#scroll-reveal
-						class="project-wrapper__image"
-						distance="30px"
-						duration=1000
-						delay=1000
-						origin=(if (not (media "isDesktop")) "right" "bottom")
-					}}
-						{{!-- 1) project url --}}
-						<a href="#!" rel="noopener" target="_blank">
-							{{#tilt-element
-								class="thumbnail rounded"
-								max=7
-								glare=true
-								max-glare=0.5
-							}}
-								{{!-- 2) project image path  --}}
-								<img class="img-fluid" src="assets/images/banner.png" alt="project banner">
-							{{/tilt-element}}
-						</a>
-					{{/scroll-reveal}}
-				</div>
-			</div>
-			{{!-- /END Project block --}}
+			</ScrollReveal>
 
-			{{!-- Each .row is a project block --}}
-			<div class="row">
-				<div class="col-lg-4 col-sm-12">
-					{{#scroll-reveal
-						class="project-wrapper__text"
-						distance="30px"
-						duration=1000
-						delay=500
-						origin=(if (not (media "isDesktop")) "left" "bottom")
-					}}
-						{{!-- 1) project title --}}
-						<h3 class="project-wrapper__text-title">Project Title</h3>
-						{{!-- 2) project info --}}
-						<div>
-							<p class="mb-4">
-								Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-								Excepturi neque, ipsa animi maiores repellendus distinctio
-								aperiam earum dolor voluptatum consequatur blanditiis
-								inventore debitis fuga numquam voluptate ex architecto
-								itaque molestiae.
-							</p>
-						</div>
-						{{!-- 3) project url  --}}
-						<a rel="noopener" target="_blank" class="cta-btn cta-btn--hero" href="#!">
-							See Live
-						</a>
-						{{!-- 4) project repository url --}}
-						<a rel="noopener" target="_blank" class="cta-btn text-color-main" href="#!">
-							Source Code
-						</a>
-					{{/scroll-reveal}}
-				</div>
-				<div class="col-lg-8 col-sm-12">
-					{{#scroll-reveal
-						class="project-wrapper__image"
-						distance="30px"
-						duration=1000
-						delay=1000
-						origin=(if (not (media "isDesktop")) "right" "bottom")
-					}}
-						{{!-- 1) project url --}}
-						<a href="#!" rel="noopener" target="_blank">
-							{{#tilt-element
-								class="thumbnail rounded"
-								max=7
-								glare=true
-								max-glare=0.5
-							}}
-								{{!-- 2) project image path  --}}
-								<img class="img-fluid" src="assets/images/banner.png" alt="project banner">
-							{{/tilt-element}}
-						</a>
-					{{/scroll-reveal}}
-				</div>
-			</div>
-			{{!-- /END Project block --}}
+			{{#each this.projects as |project|}}
+				{{!-- Each .row is a project block --}}
+				<div class="row">
+					<div class="col-lg-4 col-sm-12">
+						<ScrollReveal
+							class="project-wrapper__text"
+							@distance="30px"
+							@duration={{1000}}
+							@delay={{500}}
+							@origin={{@leftToBottom}}
+						>
+							{{!-- 1) project title --}}
+							<h3 class="project-wrapper__text-title">{{project.name}}</h3>
+							
+							{{#if project.description}}
+								{{!-- 2) project info --}}
+								<div>
+									{{#each project.description as |paragraph|}}
+										<p class="mb-4">
+											{{paragraph}}
+										</p>
+									{{/each}}
+								</div>
+							{{/if}}
 
-			{{!-- Each .row is a project block --}}
-			<div class="row">
-				<div class="col-lg-4 col-sm-12">
-					{{#scroll-reveal
-						class="project-wrapper__text"
-						distance="30px"
-						duration=1000
-						delay=500
-						origin=(if (not (media "isDesktop")) "left" "bottom")
-					}}
-						{{!-- 1) project title --}}
-						<h3 class="project-wrapper__text-title">Project Title</h3>
-						{{!-- 2) project info --}}
-						<div>
-							<p class="mb-4">
-								Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-								Excepturi neque, ipsa animi maiores repellendus distinctio
-								aperiam earum dolor voluptatum consequatur blanditiis
-								inventore debitis fuga numquam voluptate ex architecto
-								itaque molestiae.
-							</p>
-						</div>
-						{{!-- 3) project url --}}
-						<a rel="noopener" target="_blank" class="cta-btn cta-btn--hero" href="#!">
-							See Live
-						</a>
-						{{!-- 4) project repository url  --}}
-						<a rel="noopener" target="_blank" class="cta-btn text-color-main" href="#!">
-							Source Code
-						</a>
-					{{/scroll-reveal}}
+							{{#if project.url}}
+								{{!-- 3) project url  --}}
+								<a rel="noopener noreferrer" target="_blank" class="cta-btn cta-btn--hero" href={{project.url}}>
+									See Live
+								</a>
+							{{/if}}
+
+							{{#if project.repo}}
+								{{!-- 4) project repository url --}}
+								<a rel="noopener noreferrer" target="_blank" class="cta-btn text-color-main" href={{project.repo}}>
+									Source Code
+								</a>
+							{{/if}}
+						</ScrollReveal>
+					</div>
+					<div class="col-lg-8 col-sm-12">
+						<ScrollReveal
+							class="project-wrapper__image"
+							@distance="30px"
+							@duration={{1000}}
+							@delay={{1000}}
+							@origin={{@rightToBottom}}
+						>
+							{{#if project.url}}
+								{{!-- 1) project url --}}
+								<a href={{project.url}} rel="noopener noreferrer" target="_blank">
+									<TiltElement
+										class="thumbnail rounded"
+										@max={{7}}
+										@glare={{true}}
+										@max-glare={{0.5}}
+									>
+										{{!-- 2) project image path  --}}
+										<img class="img-fluid" src={{project.thumbnail.image}} alt={{project.thumbnail.alt}}>
+									</TiltElement>
+								</a>
+							{{else}}
+								<TiltElement
+									class="thumbnail rounded"
+									@max={{7}}
+									@glare={{true}}
+									@max-glare={{0.5}}
+								>
+									{{!-- 2) project image path  --}}
+									<img class="img-fluid" src={{project.thumbnail.image}} alt={{project.thumbnail.alt}}>
+								</TiltElement>
+							{{/if}}
+						</ScrollReveal>
+					</div>
 				</div>
-				<div class="col-lg-8 col-sm-12">
-					{{#scroll-reveal
-						class="project-wrapper__image"
-						distance="30px"
-						duration=1000
-						delay=1000
-						origin=(if (not (media "isDesktop")) "right" "bottom")
-					}}
-						{{!-- 1) project url --}}
-						<a href="#!" rel="noopener" target="_blank">
-							{{#tilt-element
-								class="thumbnail rounded"
-								max=7
-								glare=true
-								max-glare=0.5
-							}}
-								{{!-- 2) project image path --}}
-								<img class="img-fluid" src="assets/images/banner.png" alt="project banner">
-							{{/tilt-element}}
-						</a>
-					{{/scroll-reveal}}
-				</div>
-			</div>
-			{{!-- /END Project block --}}
+				{{!-- /END Project block --}}
+			{{/each}}
 		</div>
 		{{!-- /END Personal projects --}}
 	</div>
@@ -309,34 +213,34 @@
 {{!-- **** Contact Section **** --}}
 <section id="contact">
 	<div class="container">
-		{{#scroll-reveal
-			tagName="h2"
+		<ScrollReveal
+			@tagName="h2"
 			class="section-title"
-			duration=1000
-			delay=300
-		}}
+			@duration={{1000}}
+			@delay={{300}}
+		>
 			Contact
-		{{/scroll-reveal}}
-		{{#scroll-reveal
+		</ScrollReveal>
+		<ScrollReveal
 			class="contact-wrapper"
-			distance="30px"
-			duration=1000
-			delay=800
-		}}
+			@distance="30px"
+			@duration={{1000}}
+			@delay={{800}}
+		>
 			{{!-- 1) Contact Call To Action: change if necessary --}}
 			<p class="mb-4 contact-wrapper__text">
 				[Put here your call to action]
 			</p>
 			{{!-- 2) Contact mail link: change to your work email & change text if necessary --}}
 			<a
-				rel="noopener"
+				rel="noopener noreferrer"
 				target="_blank"
 				class="cta-btn cta-btn--resume"
 				href="mailto:example@email.com"
 			>
 				Button
 			</a>
-		{{/scroll-reveal}}
+		</ScrollReveal>
 	</div>
 </section>
 {{!-- /END Contact Section --}}
@@ -345,36 +249,29 @@
 {{!-- **** Footer Section **** --}}
 <footer class="footer navbar-static-bottom">
 	<div class="container">
-		{{#jump-scroll
-			class="back-to-top"
-			href="#top"
-		}}
+		<a class="back-to-top" href="#top" {{jumpscroll}}>
 			<span class="sr-only">Back to top</span>
 			{{fa-icon "angle-up" class="pointer-events-none" prefix="fas" size="2x"}}
-		{{/jump-scroll}}
-		{{!-- Social Links --}}
-		<div class="social-links">
-			<a href="#!" rel="noopener" target="_blank" aria-label="Follow me on Twitter">
-				{{fa-icon "twitter" class="fa-inverse pointer-events-none" prefix="fab" aria-label="twitter"}}
-			</a>
-			<a href="#!" rel="noopener" target="_blank" aria-label="Follow me on Codepen">
-				{{fa-icon "codepen" class="fa-inverse pointer-events-none" prefix="fab"}}
-			</a>
-			<a href="#!" rel="noopener" target="_blank" aria-label="Follow me on LinkedIn">
-				{{fa-icon "linkedin" class="fa-inverse pointer-events-none" prefix="fab"}}
-			</a>
-			<a href="#!" rel="noopener" target="_blank" aria-label="Follow me on GitHub">
-				{{fa-icon "github" class="fa-inverse pointer-events-none" prefix="fab"}}
-			</a>
-		</div>
+		</a>
+
+		{{#if this.socials}}
+			{{!-- Social Links --}}
+			<div class="social-links">
+				{{#each this.socials as |social|}}
+					<a href={{social.url}} rel="noopener noreferrer" target="_blank" aria-label="Follow me on {{social.name}}">
+						{{fa-icon social.name class="fa-inverse pointer-events-none" prefix="fab" aria-label=social.name}}
+					</a>
+				{{/each}}
+			</div>
 		{{!-- /END Social Links --}}
+		{{/if}}
 
 		<hr>
 
 		{{!-- Please leave this in place and give credit where it is due --}}
 		<p class="footer__text">
 			&copy; 2019 - Developed by
-			<a href="https://github.com/sernadesigns" rel="noopener" target="_blank">
+			<a href="https://github.com/sernadesigns" rel="noopener noreferrer" target="_blank">
 				Michael Serna
 			</a>
 		</p>

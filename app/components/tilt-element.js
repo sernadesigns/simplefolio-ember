@@ -1,4 +1,6 @@
-import Component from '@ember/component';
+import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
+import { action } from '@ember/object';
 import VanillaTilt from 'vanilla-tilt';
 
 const optionProps = [
@@ -25,47 +27,112 @@ const optionProps = [
 	'gyroscopeSamples'
 ];
 
-export default Component.extend({
-	tagName: 'div',
-	attributeBindings: ['data-tilt'],
+export default class TiltElement extends Component {
+	@tracked options;
 
-	didReceiveAttrs() {
+  constructor() {
+		super(...arguments);
+		this.options = {};
+
 		this._setDefaults();
-	},
-
-	didInsertElement() {
-		VanillaTilt.init(this.element, this.options);
-	},
-
-	reverse: false,
-	max: 35,
-	startX: 0,
-	startY: 0,
-	perspective: 1000,
-	scale: 1,
-	speed: 300,
-	transition: true,
-	axis: null,
-	reset: true,
-	easing: "cubic-bezier(.03,.98,.52,.99)",
-	glare: false,
-	"max-glare": 1,
-	"glare-prerender": false,
-	"mouse-event-element": null,
-	"full-page-listening": false,
-	gyroscope: true,
-	gyroscopeMinAngleX: -45,
-	gyroscopeMaxAngleX: 45,
-	gyroscopeMinAngleY: -45,
-	gyroscopeMaxAngleY: 45,
-	gyroscopeSamples: 10,
-
-	_setDefaults() {
-		let options = {};
-		optionProps.forEach(option => {
-			options[option] = this[option];
-		});
-
-		this.options = options;
 	}
-});
+
+	@action
+	initializeVanillaTilt(element) {
+		VanillaTilt.init(element, this.options);
+	}
+
+	get reverse() {
+		return this.args.reverse || false;
+	}
+
+	get max() {
+		return this.args.max || 35;
+	}
+
+	get startX() {
+		return this.args.startX || 0;
+	}
+
+	get startY() {
+		return this.args.startY || 0;
+	}
+
+	get perspective() {
+		return this.args.perspective || 1000;
+	}
+
+	get scale() {
+		return this.args.scale || 1;
+	}
+
+	get speed() {
+		return this.args.speed || 300;
+	}
+
+	get transition() {
+		return this.args.transition || true;
+	}
+
+	get axis() {
+		return this.args.axis || null;
+	}
+
+	get reset() {
+		return this.args.reset || true;
+	}
+
+	get easing() {
+		return this.args.easing || "cubic-bezier(.03,.98,.52,.99)";
+	}
+
+	get glare() {
+		return this.args.glare || false;
+	}
+
+	get "max-glare"() {
+		return this.args["max-glare"] || 1;
+	}
+
+	get "glare-prerender"() {
+		return this.args["glare-prerender"] || false;
+	}
+
+	get "mouse-event-element"() {
+		return this.args["mouse-event-element"] || null;
+	}
+
+	get "full-page-listening"() {
+		return this.args["full-page-listening"] || false;
+	}
+
+	get gyroscope() {
+		return this.args.gyroscope || true;
+	}
+
+	get gyroscopeMinAngleX() {
+		return this.args.gyroscopeMinAngleX || -45;
+	}
+
+	get gyroscopeMaxAngleX() {
+		return this.args.gyroscopeMaxAngleX || 45;
+	}
+
+	get gyroscopeMinAngleY() {
+		return this.args.gyroscopeMinAngleY || -45;
+	}
+
+	get gyroscopeMaxAngleY() {
+		return this.args.gyroscopeMaxAngleY || 45;
+	}
+
+	get gyroscopeSamples() {
+		return this.args.gyroscopeSamples || 10;
+	}
+
+  _setDefaults() {
+		optionProps.forEach(option => {
+			this.options[option] = this[option];
+		});
+	}
+}
